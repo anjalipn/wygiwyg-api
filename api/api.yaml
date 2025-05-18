@@ -1,0 +1,88 @@
+openapi: 3.0.3
+info:
+  title: WYGIWYG API
+  description: What You Give Is What You Get API - A customizable response API for testing and development purposes
+  version: 1.0.0
+  contact:
+    name: API Support
+    url: https://github.com/anjalipn/wygiwyg-api
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /api/wygiwyg/response:
+    post:
+      summary: Get a customizable response
+      description: Returns a response with the specified status code, headers, and body
+      operationId: getCustomResponse
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WygiwygRequest'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The response body will match exactly what was provided in the request
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    WygiwygRequest:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+          description: HTTP status code to return
+          default: 200
+          example: 200
+        headers:
+          type: object
+          description: Custom headers to include in the response
+          additionalProperties:
+            type: string
+          example:
+            X-Custom-Header: CustomValue
+            X-Request-ID: 12345
+        body:
+          type: object
+          description: Response body (can be any valid JSON)
+          example:
+            message: Hello World
+      example:
+        statusCode: 200
+        headers:
+          X-Custom-Header: CustomValue
+        body:
+          message: Hello World
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: string
+          description: Error code
+      example:
+        error: Invalid request format
+        code: BAD_REQUEST 
