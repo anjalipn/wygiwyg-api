@@ -1,4 +1,4 @@
-# Dummy API
+# WYGIWYG API (What You Give Is What You Get)
 
 A Spring Boot application that provides a customizable API endpoint for testing and development purposes. This API allows you to specify the exact response you want to receive, including status code, headers, and body.
 
@@ -12,7 +12,7 @@ A Spring Boot application that provides a customizable API endpoint for testing 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd dummy-api
+cd wygiwyg-api
 ```
 
 2. Build the project:
@@ -32,7 +32,7 @@ The application will start on port 8080.
 ### Endpoint
 
 ```
-POST http://localhost:8080/api/dummy/response
+POST http://localhost:8080/api/wygiwyg/response
 ```
 
 ### Request Body Structure
@@ -53,7 +53,7 @@ POST http://localhost:8080/api/dummy/response
 
 ### 1. Basic Success Response
 ```bash
-curl -X POST http://localhost:8080/api/dummy/response \
+curl -X POST http://localhost:8080/api/wygiwyg/response \
 -H "Content-Type: application/json" \
 -d '{
     "statusCode": 200,
@@ -72,7 +72,7 @@ Response:
 
 ### 2. Response Without Body
 ```bash
-curl -X POST http://localhost:8080/api/dummy/response \
+curl -X POST http://localhost:8080/api/wygiwyg/response \
 -H "Content-Type: application/json" \
 -d '{
     "statusCode": 204
@@ -83,7 +83,7 @@ Response: Empty response body with status code 204
 
 ### 3. Custom Headers
 ```bash
-curl -X POST http://localhost:8080/api/dummy/response \
+curl -X POST http://localhost:8080/api/wygiwyg/response \
 -H "Content-Type: application/json" \
 -d '{
     "statusCode": 200,
@@ -112,7 +112,7 @@ Response Body:
 
 ### 4. Error Response
 ```bash
-curl -X POST http://localhost:8080/api/dummy/response \
+curl -X POST http://localhost:8080/api/wygiwyg/response \
 -H "Content-Type: application/json" \
 -d '{
     "statusCode": 404,
@@ -133,7 +133,7 @@ Response (Status: 404):
 
 ### 5. Complex Response Body
 ```bash
-curl -X POST http://localhost:8080/api/dummy/response \
+curl -X POST http://localhost:8080/api/wygiwyg/response \
 -H "Content-Type: application/json" \
 -d '{
     "statusCode": 200,

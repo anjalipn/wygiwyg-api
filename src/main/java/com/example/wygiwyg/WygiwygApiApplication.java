@@ -1,11 +1,11 @@
-package com.example.dummyapi;
+package com.example.wygiwyg;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DummyApiApplication {
+public class WygiwygApiApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DummyApiApplication.class, args);
+        SpringApplication.run(WygiwygApiApplication.class, args);
     }
 } 

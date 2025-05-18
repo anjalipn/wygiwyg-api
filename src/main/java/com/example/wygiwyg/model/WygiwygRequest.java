@@ -1,10 +1,10 @@
-package com.example.dummyapi.model;
+package com.example.wygiwyg.model;
 
 import lombok.Data;
 import java.util.Map;
 
 @Data
-public class DummyRequest {
+public class WygiwygRequest {
     private int statusCode = 200;
     private Map<String, String> headers;
     private Object body;
